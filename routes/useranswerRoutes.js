@@ -40,10 +40,9 @@ router.get('/getUserAvailability/:username',(req,res)=>{
  * 
  * Same API can be used to verify the answer
 */
-router.get('/getAnswer/:username/:question',(req,res)=>{
+router.get('/getAnswer/:username',(req,res)=>{
     UserAnswer.findOne({
-        userid: req.params.username,
-        question: req.params.question
+        userid: req.params.username
     },(err,response)=>{
         if(err)
             res.send(err);
