@@ -11,7 +11,7 @@ const userAnswerRoutes = require('./routes/useranswerRoutes');
 
 const app = express();
 
-const port = 4000 || process.env.PORT;
+const port = process.env.PORT || 4000;
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
