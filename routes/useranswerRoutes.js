@@ -36,12 +36,15 @@ router.get('/getUserAvailability/:username',(req,res)=>{
  * to complete the authentication process
  * 
  * GET
- * http://localhost:4000/useranswers/getQuestion/anshul7931
+ * http://localhost:4000/useranswers/getAnswer/anshul7931/What is your pet name?
  * 
  * Same API can be used to verify the answer
 */
-router.get('/getQuestion/:username',(req,res)=>{
-    UserAnswer.findOne({userid: req.params.username},(err,response)=>{
+router.get('/getAnswer/:username/:question',(req,res)=>{
+    UserAnswer.findOne({
+        userid: req.params.username,
+        question: req.params.question
+    },(err,response)=>{
         if(err)
             res.send(err);
         else
