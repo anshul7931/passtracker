@@ -71,7 +71,7 @@ router.post('/createNewUserDetail',(req,res)=>{
 /**
  * Updates existing username/password of corresponding username(userid)
  */
-router.put('/updateUserDetails',(req,res)={});
+//router.put('/updateUserDetails',(req,res)={});
 
 /**
  * Deletes existing username/password of corresponding username(userid)
