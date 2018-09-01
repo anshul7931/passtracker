@@ -74,7 +74,7 @@ router.post('/createNewUserDetail',(req,res)=>{
 router.put('/updateUserDetails',(req,res)=>{
     UserDetail.findOneAndUpdate(
         {_id:req.body.id},
-        {username:req.body.username,password:req.params.password}
+        {username:req.body.username, password:req.body.password}
     )
     .then(updatedUser=>res.json({"responseMessage":"User detail updated deleted"}))
     .catch(err=>res.json({"responseMessage":err}))
