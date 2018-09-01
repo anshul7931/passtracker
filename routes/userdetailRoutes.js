@@ -29,7 +29,7 @@ router.get('/getUserDetails/:username',(req,res)=>{
  * GET
  * http://localhost:4000/userdetails/getUserDetails/anshul7931/Orkut
  */
-router.get('/getUserDetails/:username/:idIdentifier',(req,res)=>{
+router.get('/getUserDetailsWithIdentifier/:username/:idIdentifier',(req,res)=>{
     UserDetail.find({
          userid: req.params.username,
          idIdentifier: req.params.idIdentifier
@@ -71,5 +71,20 @@ router.post('/createNewUserDetail',(req,res)=>{
 /**
  * Updates existing username/password of corresponding username(userid)
  */
+router.put('/updateUserDetails',(req,res)={});
+
+/**
+ * Deletes existing username/password of corresponding username(userid)
+ */
+router.delete('/deleteUserDetails',(req,res)=>{
+    UserDetail.findByIdAndRemove({_id:req.body.id},(err,res)=>{
+        if(err){
+            res.json({"responseMessage":err});
+        }
+        else{
+            res.json({"responseMessage":"User detail successfully deleted"});
+        }
+    });
+});
 
 module.exports = router;

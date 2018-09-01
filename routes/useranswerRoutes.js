@@ -36,7 +36,7 @@ router.get('/getUserAvailability/:username',(req,res)=>{
  * to complete the authentication process
  * 
  * GET
- * http://localhost:4000/useranswers/getAnswer/anshul7931/What is your pet name?
+ * http://localhost:4000/useranswers/getAnswer/anshul7931
  * 
  * Same API can be used to verify the answer
 */
