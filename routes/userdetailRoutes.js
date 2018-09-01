@@ -77,14 +77,10 @@ router.post('/createNewUserDetail',(req,res)=>{
  * Deletes existing username/password of corresponding username(userid)
  */
 router.delete('/deleteUserDetails',(req,res)=>{
-    UserDetail.findByIdAndRemove({_id:req.body.id},(err,res)=>{
-        if(err){
-            res.json({"responseMessage":err});
-        }
-        else{
-            res.json({"responseMessage":"User detail successfully deleted"});
-        }
-    });
+    UserDetail.findOneAndRemove({_id:req.body.id})
+    .then(deletedUser=>res.json({"responseMessage":"User detail successfully deleted"}))
+    .catch(err=>res.json({"responseMessage":err}))
 });
 
 module.exports = router;
+
