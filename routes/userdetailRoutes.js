@@ -71,7 +71,14 @@ router.post('/createNewUserDetail',(req,res)=>{
 /**
  * Updates existing username/password of corresponding username(userid)
  */
-//router.put('/updateUserDetails',(req,res)={});
+router.put('/updateUserDetails',(req,res)=>{
+    UserDetail.findOneAndUpdate(
+        {_id:req.body.id},
+        {username:req.body.username,password:req.params.password}
+    )
+    .then(updatedUser=>res.json({"responseMessage":"User detail updated deleted"}))
+    .catch(err=>res.json({"responseMessage":err}))
+});
 
 /**
  * Deletes existing username/password of corresponding username(userid)
